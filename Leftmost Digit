@@ -1,0 +1,23 @@
+显然N^N结果太大，需要利用公式求解
+设n^n = c  
+  a,b分别为c的整数部分和小数部分
+  10^c = 10^(a+b) = 10^a*10^b
+  10^a = 10^c/10^b = 10^(c-b)
+  c = lgn^n = nlgn
+  lga = lg(c-b)
+  a = 10^(lg(c-b))
+
+#include<cstdio>
+#include<cmath>
+int main(){
+    int t,n;
+    while(~scanf("%d",&t)){
+        while(t--){
+            scanf("%d",&n);
+            double s = n*log10(1.0*n);
+            s -= floor(s);
+            printf("%d\n",(int)pow(10.0, s));
+        }
+    }
+    return 0;
+}
